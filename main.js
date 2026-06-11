@@ -1,0 +1,137 @@
+/* ============================================================
+   THE BOWLING LAB — main.js
+   Handles: contact form, Instagram feed
+   ============================================================ */
+
+// ---- CONTACT FORM ----
+const form = document.getElementById('contactForm');
+const success = document.getElementById('formSuccess');
+
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = {
+      name:     form.name.value.trim(),
+      club:     form.club.value.trim(),
+      email:    form.email.value.trim(),
+      phone:    form.phone.value.trim(),
+      sessions: form.sessions.value,
+      message:  form.message.value.trim(),
+    };
+
+    // -------------------------------------------------------
+    // OPTION A: Formspree (recommended for static/Vercel sites)
+    // 1. Sign up at formspree.io
+    // 2. Create a new form and copy your endpoint
+    // 3. Replace the URL below with your Formspree endpoint
+    // e.g. https://formspree.io/f/YOUR_FORM_ID
+    // -------------------------------------------------------
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqeypbl';
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        success.textContent = "Thanks — I'll be in touch shortly.";
+        form.reset();
+      } else {
+        success.textContent = 'Something went wrong. Try emailing Josh@thebowlinglab.com.au directly.';
+      }
+    } catch {
+      success.textContent = 'Could not send. Try emailing Josh@thebowlinglab.com.au directly.';
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+}
+
+// ---- INSTAGRAM FEED ----
+// The Bowling Lab Instagram feed is loaded via a lightweight embed approach.
+// Two options depending on your setup:
+
+// -------------------------------------------------------
+// OPTION A: Instagram Basic Display API (requires Meta app approval)
+// Once you have an access token, fetch your media and render it below.
+// Replace YOUR_ACCESS_TOKEN with your token.
+// -------------------------------------------------------
+
+// -------------------------------------------------------
+// OPTION B: Embed a third-party widget like Curator.io or EmbedSocial.
+// These are free-tier friendly and work with Vercel static sites.
+// Paste the embed snippet they provide directly into index.html
+// in the #instaGrid div, replacing the placeholder tiles.
+// -------------------------------------------------------
+
+// The placeholder shimmer tiles are shown by default until
+// you connect a real feed. To load real posts, uncomment and
+// complete the function below with your chosen method.
+
+/*
+async function loadInstagram() {
+  const TOKEN = 'YOUR_ACCESS_TOKEN';
+  const LIMIT = 6;
+  const url = `https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink,thumbnail_url&limit=${LIMIT}&access_token=${TOKEN}`;
+
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    const grid = document.getElementById('instaGrid');
+    grid.innerHTML = '';
+
+    json.data.forEach(post => {
+      const src = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      const tile = document.createElement('a');
+      tile.href = post.permalink;
+      tile.target = '_blank';
+      tile.rel = 'noopener';
+      tile.className = 'insta-tile';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'The Bowling Lab on Instagram';
+      img.loading = 'lazy';
+
+      tile.appendChild(img);
+      grid.appendChild(tile);
+    });
+  } catch (err) {
+    console.warn('Instagram feed failed to load:', err);
+    // Placeholder tiles remain visible — no broken state shown to users
+  }
+}
+
+loadInstagram();
+*/
+
+// ---- SMOOTH NAV HIGHLIGHT ----
+// Add subtle active state to nav on scroll (optional enhancement)
+const sections = document.querySelectorAll('section[id]');
+const navCta = document.querySelector('.nav-cta');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.target.id === 'contact') {
+        navCta.style.background = '#6B1A2A';
+        navCta.style.color = '#F5F0E8';
+      } else if (entry.isIntersecting) {
+        navCta.style.background = '';
+        navCta.style.color = '';
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+sections.forEach(s => observer.observe(s));
