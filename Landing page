@@ -1,0 +1,7 @@
+echo "# The-bowling-lab-website" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/The-Bowling-Lab/The-bowling-lab-website.git
+git push -u origin main
