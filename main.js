@@ -1,7 +1,20 @@
 /* ============================================================
-   THE BOWLING LAB — main.js
-   Handles: contact form, Instagram feed
+   THE BOWLING LAB v2 — main.js
    ============================================================ */
+
+// ---- MOBILE NAV ----
+const burger = document.getElementById('navBurger');
+const mobileNav = document.getElementById('navMobile');
+
+if (burger && mobileNav) {
+  burger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+}
+
+function closeMobile() {
+  if (mobileNav) mobileNav.classList.remove('open');
+}
 
 // ---- CONTACT FORM ----
 const form = document.getElementById('contactForm');
@@ -25,13 +38,6 @@ if (form) {
       message:  form.message.value.trim(),
     };
 
-    // -------------------------------------------------------
-    // OPTION A: Formspree (recommended for static/Vercel sites)
-    // 1. Sign up at formspree.io
-    // 2. Create a new form and copy your endpoint
-    // 3. Replace the URL below with your Formspree endpoint
-    // e.g. https://formspree.io/f/YOUR_FORM_ID
-    // -------------------------------------------------------
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqeypbl';
 
     try {
@@ -56,82 +62,25 @@ if (form) {
   });
 }
 
-// ---- INSTAGRAM FEED ----
-// The Bowling Lab Instagram feed is loaded via a lightweight embed approach.
-// Two options depending on your setup:
+// ---- SCROLL REVEAL ----
+const revealEls = document.querySelectorAll('.price-card, .testi-card, .included-item, .proof-item');
 
-// -------------------------------------------------------
-// OPTION A: Instagram Basic Display API (requires Meta app approval)
-// Once you have an access token, fetch your media and render it below.
-// Replace YOUR_ACCESS_TOKEN with your token.
-// -------------------------------------------------------
-
-// -------------------------------------------------------
-// OPTION B: Embed a third-party widget like Curator.io or EmbedSocial.
-// These are free-tier friendly and work with Vercel static sites.
-// Paste the embed snippet they provide directly into index.html
-// in the #instaGrid div, replacing the placeholder tiles.
-// -------------------------------------------------------
-
-// The placeholder shimmer tiles are shown by default until
-// you connect a real feed. To load real posts, uncomment and
-// complete the function below with your chosen method.
-
-/*
-async function loadInstagram() {
-  const TOKEN = 'YOUR_ACCESS_TOKEN';
-  const LIMIT = 6;
-  const url = `https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink,thumbnail_url&limit=${LIMIT}&access_token=${TOKEN}`;
-
-  try {
-    const res = await fetch(url);
-    const json = await res.json();
-    const grid = document.getElementById('instaGrid');
-    grid.innerHTML = '';
-
-    json.data.forEach(post => {
-      const src = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
-      const tile = document.createElement('a');
-      tile.href = post.permalink;
-      tile.target = '_blank';
-      tile.rel = 'noopener';
-      tile.className = 'insta-tile';
-
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = 'The Bowling Lab on Instagram';
-      img.loading = 'lazy';
-
-      tile.appendChild(img);
-      grid.appendChild(tile);
-    });
-  } catch (err) {
-    console.warn('Instagram feed failed to load:', err);
-    // Placeholder tiles remain visible — no broken state shown to users
-  }
-}
-
-loadInstagram();
-*/
-
-// ---- SMOOTH NAV HIGHLIGHT ----
-// Add subtle active state to nav on scroll (optional enhancement)
-const sections = document.querySelectorAll('section[id]');
-const navCta = document.querySelector('.nav-cta');
-
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && entry.target.id === 'contact') {
-        navCta.style.background = '#6B1A2A';
-        navCta.style.color = '#F5F0E8';
-      } else if (entry.isIntersecting) {
-        navCta.style.background = '';
-        navCta.style.color = '';
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.3 }
+  { threshold: 0.1 }
 );
 
-sections.forEach(s => observer.observe(s));
+revealEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  revealObserver.observe(el);
+});
