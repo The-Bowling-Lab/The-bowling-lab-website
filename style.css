@@ -642,6 +642,52 @@ img { display: block; max-width: 100%; }
 }
 .footer-links a:hover { opacity: 1; }
 
+
+/* ============================================================
+   MID PAGE CTA
+   ============================================================ */
+.mid-cta {
+  background: var(--maroon);
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.mid-cta-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2.5rem; flex-wrap: wrap;
+}
+
+.mid-cta-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800; color: var(--cream);
+  text-transform: uppercase; line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.mid-cta-sub {
+  font-size: 0.9rem; color: rgba(245,240,232,0.65);
+  line-height: 1.65; max-width: 44ch;
+}
+
+.mid-cta-actions {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-ghost-dark {
+  display: inline-block; font-size: 0.82rem; font-weight: 600;
+  color: rgba(245,240,232,0.7);
+  border-bottom: 1px solid rgba(245,240,232,0.3);
+  padding-bottom: 2px; text-align: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-ghost-dark:hover { color: var(--cream); border-color: var(--cream); }
+
+@media (max-width: 700px) {
+  .mid-cta-inner { flex-direction: column; align-items: flex-start; }
+  .mid-cta-actions { flex-direction: row; flex-wrap: wrap; }
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
