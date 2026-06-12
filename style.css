@@ -147,19 +147,35 @@ img { display: block; max-width: 100%; }
 .hero {
   min-height: 100svh; position: relative; overflow: hidden;
   display: flex; align-items: center;
+  background: var(--deep);
 }
 
-.hero-bg { position: absolute; inset: 0; }
-.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(42,8,15,0.92) 0%, rgba(42,8,15,0.75) 50%, rgba(42,8,15,0.45) 100%);
+/* Graphic hero background */
+.hero-graphic {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+
+/* Giant faded FBC letterforms */
+.hero-fbc {
+  position: absolute; right: -2%; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-size: clamp(180px, 28vw, 340px);
+  font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+  color: rgba(107,26,42,0.35); user-select: none;
+  text-transform: uppercase;
+}
+
+/* Diagonal slash accent */
+.hero-slash {
+  position: absolute; top: -10%; right: 30%;
+  width: 2px; height: 120%;
+  background: linear-gradient(to bottom, transparent, rgba(168,200,224,0.12), transparent);
+  transform: rotate(12deg);
 }
 
 /* Stumps */
 .hero-stumps {
-  position: absolute; right: 5%; bottom: 0;
-  width: clamp(120px, 22vw, 280px); height: clamp(240px, 50vh, 500px);
+  position: absolute; right: 4%; bottom: 0;
+  width: clamp(100px, 16vw, 220px); height: clamp(200px, 44vh, 440px);
   pointer-events: none; z-index: 1;
 }
 .stump {
