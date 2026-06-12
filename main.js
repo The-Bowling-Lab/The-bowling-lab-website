@@ -22,12 +22,9 @@
     s1.style.transform = '';
     s2.style.transform = '';
     s3.style.transform = '';
-    bail1.style.transform = '';
-    bail1.style.opacity = '0.9';
-    bail1.style.transition = 'none';
-    bail2.style.transform = '';
-    bail2.style.opacity = '0.9';
-    bail2.style.transition = 'none';
+    // Clear ALL inline styles so bails snap back to their CSS-defined positions
+    bail1.style.cssText = '';
+    bail2.style.cssText = '';
     ball.style.opacity = '0';
     ball.style.transform = 'rotate(0deg)';
   }
