@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#6B1A2A"/>
+  <!-- Three stumps -->
+  <rect x="18" y="16" width="6" height="30" rx="1.5" fill="#F5F0E8"/>
+  <rect x="29" y="16" width="6" height="30" rx="1.5" fill="#F5F0E8"/>
+  <rect x="40" y="16" width="6" height="30" rx="1.5" fill="#F5F0E8"/>
+  <!-- Bail left - breaking away -->
+  <rect x="16" y="13" width="12" height="4" rx="1" fill="#A8C8E0" transform="rotate(-18 22 15)"/>
+  <!-- Bail right - breaking away -->
+  <rect x="36" y="13" width="12" height="4" rx="1" fill="#A8C8E0" transform="rotate(18 42 15)"/>
+</svg>
