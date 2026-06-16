@@ -713,6 +713,20 @@ img { display: block; max-width: 100%; }
   transform: rotate(-15deg);
 }
 
+
+/* Pricing contact block */
+.pricing-contact {
+  background: var(--white); border: 1px solid var(--light);
+  border-radius: 4px; padding: 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+}
+
+.pricing-contact-body {
+  font-size: 1rem; line-height: 1.75; color: #444;
+  max-width: 50ch;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
