@@ -857,6 +857,55 @@ img { display: block; max-width: 100%; }
   .cp-grid { grid-template-columns: 1fr; }
 }
 
+
+/* ============================================================
+   ROLE SELECTOR
+   ============================================================ */
+.role-selector {
+  margin-top: 3rem;
+  position: relative; z-index: 2;
+}
+
+.role-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(245,240,232,0.4);
+  margin-bottom: 0.85rem;
+}
+
+.role-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem; max-width: 560px;
+}
+
+.role-card {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  background: rgba(245,240,232,0.06);
+  border: 1px solid rgba(245,240,232,0.12);
+  border-radius: 4px; padding: 1rem 1rem 1.1rem;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+.role-card:hover {
+  background: rgba(245,240,232,0.11);
+  border-color: rgba(168,200,224,0.4);
+  transform: translateY(-2px);
+}
+
+.role-icon { font-size: 1.4rem; line-height: 1; margin-bottom: 0.2rem; }
+
+.role-title {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+  color: var(--cream); text-transform: uppercase; line-height: 1.1;
+}
+
+.role-desc {
+  font-size: 0.75rem; color: rgba(245,240,232,0.5); line-height: 1.4;
+}
+
+@media (max-width: 540px) {
+  .role-cards { grid-template-columns: 1fr; max-width: 100%; }
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
