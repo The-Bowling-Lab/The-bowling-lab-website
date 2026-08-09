@@ -936,6 +936,31 @@ img { display: block; max-width: 100%; }
 .crt-post-image-container { margin: 0 !important; border-radius: 0 !important; }
 .crt-post { padding: 0 !important; border: none !important; border-radius: 2px !important; overflow: hidden; }
 
+
+/* Pricing from row */
+.pricing-from-row {
+  display: flex; gap: 1px; background: var(--light);
+  border: 1px solid var(--light); border-radius: 4px;
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+.pricing-from-item {
+  flex: 1; background: var(--white);
+  padding: 1.25rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.pricing-from-label {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--mid);
+}
+.pricing-from-price {
+  font-family: var(--font-mono); font-size: 1.6rem;
+  font-weight: 500; color: var(--maroon); line-height: 1;
+}
+
+@media (max-width: 540px) {
+  .pricing-from-row { flex-direction: column; }
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
