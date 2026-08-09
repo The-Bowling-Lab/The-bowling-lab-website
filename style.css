@@ -727,6 +727,136 @@ img { display: block; max-width: 100%; }
   max-width: 50ch;
 }
 
+
+/* ============================================================
+   1:1 COACHING PAGE
+   ============================================================ */
+
+.nav-active {
+  color: var(--blue) !important;
+  font-weight: 600 !important;
+}
+
+.coaching-hero {
+  background: var(--deep);
+  padding: calc(var(--sec) * 1.2) 0 var(--sec);
+  position: relative; overflow: hidden;
+}
+.coaching-hero::after {
+  content: '';
+  position: absolute; top: -10%; right: -5%;
+  width: 50%; height: 120%;
+  background: rgba(107,26,42,0.2);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+
+.coaching-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 800; color: var(--cream);
+  text-transform: uppercase; line-height: 0.95;
+  letter-spacing: -0.01em; margin-bottom: 1.5rem;
+}
+.coaching-h1 span { color: var(--blue); }
+
+.coaching-hero-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: rgba(245,240,232,0.65); line-height: 1.7;
+  max-width: 44ch; margin-bottom: 2rem;
+}
+
+/* Covered section */
+.coaching-covered {
+  padding: var(--sec) 0; background: var(--cream);
+}
+.coaching-covered-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.coaching-body {
+  font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1rem;
+}
+.coaching-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.5rem; }
+.coaching-item { display: flex; gap: 1rem; align-items: flex-start; }
+.coaching-item h3 { font-size: 0.875rem; font-weight: 600; color: var(--grey); margin-bottom: 0.2rem; }
+.coaching-item p { font-size: 0.85rem; line-height: 1.6; color: var(--mid); }
+
+/* Pricing section */
+.coaching-pricing { padding: var(--sec) 0; background: var(--off); }
+.coaching-pricing .section-h2 { margin-bottom: 2rem; }
+
+.cp-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-bottom: 1.5rem;
+}
+
+.cp-block {
+  background: var(--white); border: 1px solid var(--light);
+  border-radius: 4px; overflow: hidden;
+}
+.cp-block--featured {
+  background: var(--maroon); border-color: var(--maroon);
+}
+
+.cp-block-header {
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.cp-block--featured .cp-block-header {
+  border-bottom-color: rgba(245,240,232,0.12);
+}
+
+.cp-block-header h3 {
+  font-family: var(--font-display); font-size: 1.4rem;
+  font-weight: 700; text-transform: uppercase;
+  color: var(--maroon); margin-bottom: 0.35rem;
+}
+.cp-block--featured .cp-block-header h3 { color: var(--cream); }
+
+.cp-block-header p {
+  font-size: 0.83rem; color: var(--mid); line-height: 1.5;
+}
+.cp-block--featured .cp-block-header p { color: rgba(245,240,232,0.55); }
+
+.cp-rows { padding: 0.5rem 0; }
+
+.cp-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.9rem 1.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.cp-block--featured .cp-row { border-bottom-color: rgba(245,240,232,0.08); }
+.cp-row:last-child { border-bottom: none; }
+
+.cp-label {
+  font-size: 0.875rem; font-weight: 500; color: var(--grey); flex: 1;
+}
+.cp-block--featured .cp-label { color: rgba(245,240,232,0.75); }
+
+.cp-price {
+  font-family: var(--font-mono); font-size: 1.3rem;
+  font-weight: 500; color: var(--maroon);
+}
+.cp-block--featured .cp-price { color: var(--cream); }
+
+.cp-note {
+  font-size: 0.75rem; color: var(--mid);
+  text-align: right; min-width: 110px;
+}
+.cp-block--featured .cp-note { color: rgba(245,240,232,0.45); }
+
+/* Who it's for */
+.coaching-who {
+  padding: var(--sec) 0; background: var(--deep);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .coaching-covered-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cp-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
