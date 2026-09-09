@@ -26,3 +26,21 @@ Open to note:
 - All page content driven from the fetched/live site at time of writing.
   Re-check nothing's changed on the real site since if time has passed
   before this gets implemented.
+
+Fixed in critical review pass:
+- Nav "Book a session" button text was nearly invisible (a CSS specificity
+  bug made it inherit the nav's off-white text color instead of its own
+  dark maroon). Fixed.
+- "View pricing" / "See how it works" links inside the three pillar cards
+  were low-contrast light blue on a cream background. Now maroon.
+- Testimonial quote marks were doubling up (both the HTML tag and the
+  typed text were adding quotation marks). Fixed to show single quotes.
+- 1:1 pricing intro line said every session includes travel and net hire,
+  directly above the one option that excludes both. Reworded so it's
+  accurate.
+- Removed "Australia-wide" from the footer, same issue as the earlier
+  "Vic-wide" stat: an invented coverage claim, not one you gave me.
+
+Still outstanding:
+- about.jpg is still a placeholder, needs your real photo before this
+  goes live, it currently shows as a broken image.
