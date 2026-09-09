@@ -1,493 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Bowling Lab, Specialist Fast Bowling Coaching, Melbourne East</title>
-  <meta name="description" content="Specialist fast bowling coaching for clubs, players and parents across Melbourne's eastern suburbs. Club pre-season sessions, 1:1 coaching and small groups available." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="The Bowling Lab, Specialist Fast Bowling Coaching" />
-  <meta property="og:description" content="Specialist fast bowling coaching for clubs, players and parents across Melbourne's eastern suburbs. Club sessions, 1:1 coaching and small groups available." />
-  <meta property="og:image" content="https://www.thebowlinglab.com.au/og-image.jpg" />
-  <meta property="og:url" content="https://www.thebowlinglab.com.au" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bowling Lab — Specialist Fast Bowling Coaching, Melbourne East</title>
+<meta name="description" content="Specialist fast bowling coaching for clubs, players and parents across Melbourne's eastern suburbs, plus video analysis for bowlers anywhere. Club pre-season sessions, 1:1 coaching, small groups and remote video review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#6B1A2A; --deep:#4A0F1C; --darkest:#2A080F;
+    --cream:#F5F0E8; --off:#EDE6DB; --light:#E0D8CC;
+    --grey:#2A2A2A; --mid:#777777; --blue:#A8C8E0;
+    --font-display:'Barlow Condensed',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'DM Mono',monospace;
+    --max:1100px;
+    --sec:clamp(4rem,9vw,7rem);
+    --pad:clamp(1.25rem,5vw,2.5rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-body);color:var(--grey);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  section{padding-top:var(--sec);padding-bottom:var(--sec);}
+  h1,h2,h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;letter-spacing:-0.02em;line-height:0.94;}
+  h2{font-size:clamp(2rem,4.2vw,2.6rem);font-weight:700;margin-bottom:1rem;}
+  h3{font-size:1.35rem;font-weight:700;letter-spacing:-0.01em;}
+  .eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:0.9rem;display:block;}
+  .eyebrow.dark{color:var(--maroon);}
+  p{color:var(--mid);}
+  .btn{display:inline-block;font-family:var(--font-body);font-size:0.875rem;font-weight:600;letter-spacing:0.01em;padding:0.8rem 2rem;border-radius:2px;background:var(--blue);color:var(--deep);border:none;cursor:pointer;transition:opacity .15s ease;}
+  .btn:hover{opacity:0.88;}
+  .btn-outline{background:transparent;border:1.5px solid var(--blue);color:var(--blue);}
+  .btn-dark{background:var(--deep);color:var(--blue);}
+  .link-arrow{font-family:var(--font-body);font-size:0.875rem;font-weight:600;color:var(--blue);}
+  section.on-dark{background:var(--deep);color:var(--cream);}
+  section.on-dark p{color:var(--light);}
+  section.on-dark h2{color:var(--cream);}
+  section.on-maroon{background:var(--maroon);color:var(--cream);}
+  section.on-maroon p{color:var(--off);}
+  section.on-off{background:var(--off);}
+  section.on-darkest{background:var(--darkest);color:var(--cream);}
+  section.on-darkest p{color:var(--light);}
+
+  /* Announcement */
+  .announce{background:var(--darkest);color:var(--off);font-family:var(--font-body);font-size:0.82rem;text-align:center;padding:0.7rem var(--pad);}
+  .announce a{color:var(--blue);font-weight:600;margin-left:0.4rem;}
+
+  /* Nav */
+  nav{background:var(--deep);position:sticky;top:0;z-index:50;}
+  .navrow{max-width:var(--max);margin:0 auto;padding:1.1rem var(--pad);display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:var(--font-display);color:var(--cream);line-height:1;}
+  .logo small{display:block;font-size:0.6rem;letter-spacing:0.2em;color:var(--blue);font-weight:600;}
+  .logo strong{display:block;font-size:1.15rem;font-weight:800;letter-spacing:0.01em;}
+  .navlinks{display:flex;align-items:center;gap:1.8rem;}
+  .navlinks a{font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--off);}
+  .navlinks a:hover{color:var(--blue);}
+  @media (max-width:900px){.navlinks a:not(.btn){display:none;}}
+
+  /* Hero */
+  .hero{background:var(--deep);color:var(--cream);position:relative;overflow:hidden;padding-top:calc(var(--sec) * 0.8);}
+  .hero .wrap{position:relative;z-index:2;}
+  .hero h1{font-size:clamp(2.6rem,7.4vw,5.6rem);color:var(--cream);}
+  .hero h1 .blue{color:var(--blue);}
+  .hero .lede{max-width:540px;font-size:1.1rem;color:var(--light);margin:1.5rem 0 2.2rem;}
+  .hero-start-label{font-family:var(--font-body);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;}
+  .paths{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,240,232,0.15);margin-top:0.5rem;}
+  .path-card{background:var(--deep);padding:1.6rem 1.4rem;}
+  .path-card h3{color:var(--cream);font-size:1.05rem;margin-bottom:0.6rem;}
+  .path-card p{font-size:0.85rem;color:var(--light);margin-bottom:0.9rem;}
+  .path-card .link-arrow{font-size:0.78rem;}
+  @media (max-width:820px){.paths{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.paths{grid-template-columns:1fr;}}
+
+  /* Stats */
+  .stats{background:var(--off);}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:left;}
+  .stat-num{font-family:var(--font-mono);font-size:2.1rem;color:var(--maroon);font-weight:500;}
+  .stat-label{font-family:var(--font-body);font-size:0.78rem;color:var(--mid);margin-top:0.3rem;}
+  @media (max-width:780px){.stats-grid{grid-template-columns:1fr 1fr;row-gap:2rem;}}
+
+  /* Pillars */
+  .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light);margin-top:2.5rem;}
+  .pillar-card{background:var(--cream);padding:2.4rem 2rem;display:flex;flex-direction:column;}
+  .pillar-num{font-family:var(--font-mono);font-size:0.78rem;color:var(--blue);background:var(--deep);display:inline-block;padding:0.25rem 0.55rem;border-radius:2px;margin-bottom:1.2rem;width:fit-content;}
+  .pillar-card h3{font-size:1.5rem;margin-bottom:0.7rem;}
+  .pillar-card p{font-size:0.92rem;margin-bottom:1.4rem;flex-grow:1;}
+  @media (max-width:820px){.pillars-grid{grid-template-columns:1fr;}}
+
+  /* Methodology */
+  .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:2.5rem;}
+  .method-item h3{font-size:1.1rem;margin-bottom:0.5rem;}
+  .method-item p{font-size:0.88rem;}
+  @media (max-width:820px){.method-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.method-grid{grid-template-columns:1fr;}}
+
+  /* Offer section shared layout */
+  .offer-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+  .offer-head .lede{max-width:520px;font-size:1rem;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2.5rem;}
+  .step .stepnum{font-family:var(--font-mono);font-size:0.85rem;color:var(--blue);margin-bottom:0.6rem;display:block;}
+  .step h3{font-size:1.1rem;margin-bottom:0.5rem;color:var(--cream);}
+  .step p{font-size:0.88rem;}
+  @media (max-width:780px){.steps{grid-template-columns:1fr;}}
+
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--light);padding:1.1rem 0;font-family:var(--font-body);}
+  .price-row:last-of-type{border-bottom:1px solid var(--light);}
+  .price-row .plabel{font-weight:600;font-size:0.95rem;color:var(--grey);}
+  .price-row .pnote{font-size:0.8rem;color:var(--mid);display:block;margin-top:0.15rem;}
+  .price-row .pval{font-family:var(--font-mono);font-size:1.1rem;color:var(--maroon);}
+  .price-box{background:var(--cream);padding:2rem;border-radius:2px;}
+  .fine{font-size:0.8rem;color:var(--mid);margin-top:1.2rem;}
+
+  .vid-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:start;}
+  @media (max-width:820px){.vid-grid{grid-template-columns:1fr;}}
+  .vid-steps{display:flex;flex-direction:column;gap:1.4rem;margin-top:1rem;}
+  .vid-step{display:flex;gap:1rem;}
+  .vid-step .n{font-family:var(--font-mono);font-size:0.85rem;color:var(--maroon);flex-shrink:0;width:1.6rem;}
+  .vid-step h3{font-size:1.02rem;margin-bottom:0.3rem;}
+  .vid-step p{font-size:0.87rem;}
+  .vid-price{background:var(--deep);color:var(--cream);padding:2rem;border-radius:2px;}
+  .vid-price .amount{font-family:var(--font-mono);font-size:2.4rem;color:var(--blue);}
+  .vid-price .turnaround{font-size:0.85rem;color:var(--light);margin-top:0.3rem;}
+  .vid-geo{font-size:0.85rem;color:var(--light);margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(245,240,232,0.2);}
+
+  /* Who chips grouped */
+  .who-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:2rem;}
+  .who-group h3{font-size:1rem;color:var(--cream);margin-bottom:0.9rem;font-family:var(--font-body);text-transform:none;font-weight:600;letter-spacing:0;}
+  .chip{display:inline-block;background:rgba(245,240,232,0.1);border:1px solid rgba(245,240,232,0.25);color:var(--off);font-size:0.8rem;padding:0.4rem 0.85rem;border-radius:20px;margin:0 0.4rem 0.4rem 0;}
+  @media (max-width:820px){.who-groups{grid-template-columns:1fr;}}
+
+  /* Testimonials */
+  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
+  .testi{background:var(--cream);padding:2rem;border-radius:2px;}
+  .testi q{font-family:var(--font-display);font-size:1.3rem;font-weight:600;text-transform:none;letter-spacing:0;display:block;margin-bottom:1.2rem;color:var(--grey);font-style:normal;}
+  .testi cite{font-family:var(--font-body);font-size:0.8rem;color:var(--mid);font-style:normal;}
+  @media (max-width:780px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:3rem;align-items:center;}
+  .about-grid img{border-radius:2px;}
+  .about-stats{display:flex;flex-direction:column;gap:0.9rem;margin-top:1.6rem;}
+  .about-stat{font-size:0.9rem;padding-left:1rem;border-left:2px solid var(--blue);}
+  @media (max-width:780px){.about-grid{grid-template-columns:1fr;}}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:3rem;}
+  .contact-grid label{display:block;font-size:0.78rem;color:var(--light);margin-bottom:0.4rem;font-weight:500;}
+  .contact-grid input,.contact-grid select,.contact-grid textarea{width:100%;background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.2);color:var(--cream);padding:0.7rem 0.9rem;border-radius:2px;font-family:var(--font-body);font-size:0.9rem;margin-bottom:1.1rem;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  @media (max-width:780px){.contact-grid{grid-template-columns:1fr;}}
+
+  footer{background:var(--darkest);color:var(--light);padding:2.5rem var(--pad);text-align:center;font-size:0.82rem;}
+  footer .flinks{display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;flex-wrap:wrap;}
+  footer .flinks a{color:var(--off);}
+</style>
 </head>
 <body>
 
-  <!-- URGENCY BANNER -->
-  <div class="urgency-bar">
-    <span>Pre-season 2026/27 club bookings are filling fast. 1:1 and small group sessions available year-round.</span>
-    <a href="#contact">Enquire now &rarr;</a>
+<div class="announce">Pre-season club bookings, 1:1 sessions and video analysis all open now.<a href="#contact">Enquire now →</a></div>
+
+<nav>
+  <div class="navrow">
+    <div class="logo"><small>THE</small><strong>BOWLING LAB</strong></div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#club">Club Programs</a>
+      <a href="#one-to-one">1:1 Coaching</a>
+      <a href="#video-analysis">Video Analysis</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn">Book a session</a>
+    </div>
   </div>
+</nav>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-the">THE</span>
-        <span class="logo-main">BOWLING LAB</span>
-      </a>
-      <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
-        <a href="coaching.html">1:1 Coaching</a>
-        <a href="#contact" class="nav-cta">Book a session</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Melbourne East &amp; Beyond · Pre-Season 2026/27</span>
+    <h1>Specialist<br><span class="blue">fast bowling</span><br>coaching.</h1>
+    <p class="lede">Three ways to work with a specialist fast bowling coach: inside your club's program, one-on-one or in a small group, or through video analysis if you want feedback without booking a full session.</p>
+    <span class="hero-start-label">Where do you want to start?</span>
+    <div class="paths">
+      <div class="path-card">
+        <h3>Club coach or president</h3>
+        <p>Bring specialist fast bowling coaching into your pre-season program. No extra sessions to run.</p>
+        <a class="link-arrow" href="#club">Club Programs →</a>
       </div>
-      <button class="nav-burger" id="navBurger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="navMobile">
-      <a href="#how" onclick="closeMobile()">How it works</a>
-      <a href="#pricing" onclick="closeMobile()">Pricing</a>
-      <a href="#about" onclick="closeMobile()">About</a>
-      <a href="coaching.html" onclick="closeMobile()">1:1 Coaching</a>
-      <a href="#contact" class="mobile-cta" onclick="closeMobile()">Book a session</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-graphic" aria-hidden="true">
-      <div class="hero-fbc">FBC</div>
-      <div class="hero-stumps" id="heroStumps">
-        <div class="stump s1" id="hs1"></div>
-        <div class="stump s2" id="hs2">
-          <span class="stump-text">THE BOWLING LAB</span>
-        </div>
-        <div class="stump s3" id="hs3"></div>
-        <div class="bail b1" id="hb1"></div>
-        <div class="bail b2" id="hb2"></div>
-        <div class="hero-ball" id="heroBall"></div>
+      <div class="path-card">
+        <h3>Player</h3>
+        <p>1:1 and small group sessions for senior and emerging bowlers who want to sharpen their game.</p>
+        <a class="link-arrow" href="#one-to-one">1:1 Coaching →</a>
       </div>
-      <div class="hero-slash"></div>
-    </div>
-    <div class="hero-inner container">
-      <p class="eyebrow">Melbourne East · Pre-Season 2026/27</p>
-      <h1 class="hero-h1">
-        <span class="h1-line">Specialist</span>
-        <span class="h1-line h1-accent">fast bowling</span>
-        <span class="h1-line">coaching.</span>
-      </h1>
-      <p class="hero-sub">For clubs, players and parents across Melbourne's eastern suburbs. No extra training nights. Real plans. Real improvement.</p>
-      <div class="role-selector">
-        <p class="role-label">Where do you want to start?</p>
-        <div class="role-cards">
-          <a href="#how" class="role-card" id="roleClub">
-            <span class="role-title">Club coach<br>or president</span>
-            <span class="role-desc">Bring specialist fast bowling coaching into your pre-season program. No extra sessions to run.</span>
-            <span class="role-cta">See how it works &rarr;</span>
-          </a>
-          <a href="coaching.html" class="role-card" id="rolePlayer">
-            <span class="role-title">Player</span>
-            <span class="role-desc">1:1 and small group sessions for senior and emerging bowlers who want to sharpen their game at competition level.</span>
-            <span class="role-cta">View coaching options &rarr;</span>
-          </a>
-          <a href="coaching.html" class="role-card" id="roleParent">
-            <span class="role-title">Parent</span>
-            <span class="role-desc">Specialist coaching for junior fast bowlers, tailored to their age, level and action. Sessions involve live bowling, technical feedback and clear plans to take away. Josh has a background working with young people.</span>
-            <span class="role-cta">View coaching options &rarr;</span>
-          </a>
-        </div>
+      <div class="path-card">
+        <h3>Parent</h3>
+        <p>Specialist coaching for junior fast bowlers, tailored to their age, level and action.</p>
+        <a class="link-arrow" href="#one-to-one">View coaching options →</a>
       </div>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Book a session</a>
-        <a href="#how" class="btn-ghost">See how it works</a>
-      </div>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- PROOF BAR -->
-  <div class="proof-bar">
-    <div class="proof-inner container">
-      <div class="proof-item">
-        <span class="proof-num">60</span>
-        <span class="proof-label">Minute sessions</span>
-      </div>
-      <div class="proof-div"></div>
-      <div class="proof-item">
-        <span class="proof-num">1–6</span>
-        <span class="proof-label">Bowlers per session</span>
-      </div>
-      <div class="proof-div"></div>
-      <div class="proof-item">
-        <span class="proof-num">0</span>
-        <span class="proof-label">Extra club training nights</span>
-      </div>
-      <div class="proof-div"></div>
-      <div class="proof-item">
-        <span class="proof-num">70%</span>
-        <span class="proof-label">Head coaching win rate</span>
+      <div class="path-card">
+        <h3>Want quick feedback?</h3>
+        <p>Get specialist eyes on your action without booking a full session, using footage you film yourself.</p>
+        <a class="link-arrow" href="#video-analysis">Video Analysis →</a>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how" id="how">
-    <div class="container">
-      <div class="how-grid">
-        <div class="how-text">
-          <p class="section-label">What is The Bowling Lab</p>
-          <h2 class="section-h2">Fast bowling is a specialist skill. It needs specialist coaching.</h2>
-          <p class="how-body">For clubs, I slot into your existing indoor pre-season sessions and work with your fast bowlers in real time. No extra night required, no disruption to your program. Coaches get a written summary after every session to keep reinforcing it through pre-season.</p>
-          <p class="how-body">For individual players and parents, 1:1 and small group sessions are available year-round, outdoors or indoors with nets included, tailored entirely to the bowler's game.</p>
-        </div>
-        <div class="how-included">
-          <p class="section-label">What's included</p>
-          <div class="included-list">
-            <div class="included-item">
-              <span class="inc-num">01</span>
-              <div>
-                <h3>Technical assessment</h3>
-                <p>Individual analysis of each bowler's action with practical feedback they can apply straight away.</p>
-              </div>
-            </div>
-            <div class="included-item">
-              <span class="inc-num">02</span>
-              <div>
-                <h3>Bowling plans</h3>
-                <p>How to set up a batter, build pressure, and create wicket-taking opportunities during a spell.</p>
-              </div>
-            </div>
-            <div class="included-item">
-              <span class="inc-num">03</span>
-              <div>
-                <h3>Reading batters</h3>
-                <p>Adjusting plans mid-spell based on what the batter is showing you.</p>
-              </div>
-            </div>
-            <div class="included-item">
-              <span class="inc-num">04</span>
-              <div>
-                <h3>Game awareness</h3>
-                <p>Building pressure, setting fields, owning a spell. The mental side of fast bowling.</p>
-              </div>
-            </div>
-            <div class="included-item">
-              <span class="inc-num">05</span>
-              <div>
-                <h3>Individual feedback</h3>
-                <p>Every bowler leaves with specific things to work on, tailored to their level and style.</p>
-              </div>
-            </div>
-            <div class="included-item">
-              <span class="inc-num">06</span>
-              <div>
-                <h3>Written summary for coaches</h3>
-                <p>A full written summary after every session. Travel included.</p>
-              </div>
-            </div>
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div><div class="stat-num">3</div><div class="stat-label">Ways to work together</div></div>
+      <div><div class="stat-num">70%</div><div class="stat-label">Head coaching win rate</div></div>
+      <div><div class="stat-num">7 days</div><div class="stat-label">Video analysis turnaround</div></div>
+      <div><div class="stat-num">$50</div><div class="stat-label">Video analysis, no full session needed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section id="how">
+  <div class="wrap">
+    <span class="eyebrow dark">Three ways to work together</span>
+    <h2>Same specialist coaching. Whichever format fits.</h2>
+    <p style="max-width:620px">Every format covers the same core ground, technical assessment, bowling plans, reading batters and game awareness. What changes is how it's delivered.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <span class="pillar-num">01</span>
+        <h3>Club Programs</h3>
+        <p>I slot into your existing indoor pre-season sessions and work with your fast bowlers in real time. No extra training night, no disruption to your program. Coaches get a written summary after every session.</p>
+        <a class="link-arrow" href="#club">See how it works →</a>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">02</span>
+        <h3>1:1 &amp; Small Group</h3>
+        <p>Focused sessions for individual players or small groups, outdoors or indoors with nets included. The full hour is built entirely around you and your game.</p>
+        <a class="link-arrow" href="#one-to-one">View pricing →</a>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">03</span>
+        <h3>Video Analysis</h3>
+        <p>Specialist feedback on your action without the commitment of a full session. Send footage, get a breakdown back. Works just as well if you're not near Melbourne too.</p>
+        <a class="link-arrow" href="#video-analysis">See how it works →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUB PROGRAMS -->
+<section id="club" class="on-dark">
+  <div class="wrap">
+    <div class="offer-head">
+      <div>
+        <span class="eyebrow">01 · Club Programs</span>
+        <h2 style="max-width:520px">Zero disruption, pre-season and in-season.</h2>
+        <p class="lede">I come to your venue and work with your fast bowlers inside the sessions you're already running. Coaches receive a written summary after every session to keep reinforcing it through pre-season.</p>
+      </div>
+      <a href="#contact" class="btn">Enquire for your club</a>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="stepnum">01</span>
+        <h3>Book a session</h3>
+        <p>Get in touch and we'll work out what suits your program and squad size.</p>
+      </div>
+      <div class="step">
+        <span class="stepnum">02</span>
+        <h3>We come to you</h3>
+        <p>I come to your venue, training night, oval or indoor facility. Travel included across Melbourne's eastern suburbs.</p>
+      </div>
+      <div class="step">
+        <span class="stepnum">03</span>
+        <h3>Bowlers leave with a plan</h3>
+        <p>Every bowler gets individual feedback. Coaches receive a written summary to reinforce it through pre-season.</p>
+      </div>
+    </div>
+
+    <div class="price-box">
+      <div class="price-row"><div><span class="plabel">1 Session</span><span class="pnote">Technique assessment, good for trying it out first</span></div><span class="pval">$200</span></div>
+      <div class="price-row"><div><span class="plabel">3 Sessions</span><span class="pnote">Technique, game plan, and reading the batter</span></div><span class="pval">$510</span></div>
+      <div class="price-row"><div><span class="plabel">Full Pre-Season · 5 Sessions</span><span class="pnote">Adds a video review session and a pre-season closer under fatigue</span></div><span class="pval">$750</span></div>
+      <p class="fine">Discounts built into every tier above a single session. Limited pre-season availability.</p>
+    </div>
+
+    <div id="tuesday-nights" style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(245,240,232,0.2);">
+      <span class="eyebrow">In-season add-on</span>
+      <h3 style="color:var(--cream);font-size:1.4rem;margin-bottom:0.6rem;">Tuesday night sessions, through the season</h3>
+      <p style="max-width:600px;margin-bottom:1.6rem;">Once the season's underway, I slot back into your regular Tuesday training. Pre-season plans are one thing, you only find out what actually needs work once there's a real batter and a real game on Saturday. Built on the plans from pre-season, not starting fresh.</p>
+      <div class="price-box">
+        <div class="price-row"><div><span class="plabel">Casual visit</span><span class="pnote">One Tuesday night, booked as needed</span></div><span class="pval">$130</span></div>
+        <div class="price-row"><div><span class="plabel">Block of four</span><span class="pnote">Spaced out across the season</span></div><span class="pval">$480</span></div>
+        <p class="fine">Only available to clubs who've completed a pre-season block. Not sold as a standalone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1:1 & SMALL GROUP -->
+<section id="one-to-one">
+  <div class="wrap">
+    <div class="offer-head">
+      <div>
+        <span class="eyebrow dark">02 · 1:1 &amp; Small Group</span>
+        <h2 style="max-width:520px">The same specialist focus, built around you.</h2>
+        <p class="lede">Technical assessment, bowling plans, reading batters and game awareness, with the full hour focused entirely on your game. Outdoor and indoor options across Melbourne's eastern suburbs.</p>
+      </div>
+      <a href="#contact" class="btn btn-dark">Book a session</a>
+    </div>
+
+    <div class="price-box">
+      <div class="price-row"><div><span class="plabel">Outdoor · 1 player</span><span class="pnote">Bring your own ground, no net hire costs</span></div><span class="pval">$90</span></div>
+      <div class="price-row"><div><span class="plabel">Outdoor · 2 players</span><span class="pnote">~$65 per player</span></div><span class="pval">$130</span></div>
+      <div class="price-row"><div><span class="plabel">Outdoor · 3 players</span><span class="pnote">~$53 per player</span></div><span class="pval">$160</span></div>
+      <div class="price-row"><div><span class="plabel">Indoor · 1 player</span><span class="pnote">Net hire included</span></div><span class="pval">$110</span></div>
+      <div class="price-row"><div><span class="plabel">Indoor · 2 players</span><span class="pnote">~$75 per player</span></div><span class="pval">$150</span></div>
+      <div class="price-row"><div><span class="plabel">Indoor · 3 players</span><span class="pnote">~$60 per player, maximum group size</span></div><span class="pval">$180</span></div>
+      <p class="fine">Maximum 3 players per small group session. Eastern suburbs of Melbourne only.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO ANALYSIS -->
+<section id="video-analysis" class="on-off">
+  <div class="wrap">
+    <span class="eyebrow dark">03 · Video Analysis</span>
+    <h2 style="max-width:560px">Specialist feedback, without the full session.</h2>
+    <p class="lede" style="margin-bottom:2.5rem;">Not every bowler wants to commit to a full session to get started. Video analysis gives you the same specialist eye on your action, using footage you film yourself, no booking required.</p>
+
+    <div class="vid-grid">
+      <div>
+        <div class="vid-steps">
+          <div class="vid-step">
+            <span class="n">01</span>
+            <div><h3>Filming guide</h3><p>Clear instructions on what to capture: side-on and rear-angle footage of your full run-up, filmed in landscape with good light.</p></div>
           </div>
+          <div class="vid-step">
+            <span class="n">02</span>
+            <div><h3>Frame-by-frame breakdown</h3><p>Your action reviewed in slow motion, with key positions through the run-up, load and release examined in detail.</p></div>
+          </div>
+          <div class="vid-step">
+            <span class="n">03</span>
+            <div><h3>Recorded analysis</h3><p>A video response talking you through exactly what's being seen, in plain terms, against the footage itself.</p></div>
+          </div>
+          <div class="vid-step">
+            <span class="n">04</span>
+            <div><h3>Priority list</h3><p>A short, specific list of what to work on first. One or two changes, not ten, so it's something you can actually act on.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="vid-price">
+        <div class="amount">$50</div>
+        <div class="turnaround">Delivered via a private link within 7 days</div>
+        <a href="#contact" class="btn" style="margin-top:1.6rem;">Book video analysis</a>
+        <p class="vid-geo">A practical, low-commitment way to get feedback from a specialist coach, whether you're local and short on time or based well outside Melbourne's eastern suburbs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="on-maroon">
+  <div class="wrap">
+    <span class="eyebrow">Who it's for</span>
+    <h2 style="color:var(--cream);max-width:600px">Any fast bowler who wants to head into the season with a plan.</h2>
+    <div class="who-groups">
+      <div class="who-group">
+        <h3>Club Programs</h3>
+        <span class="chip">Club coaches &amp; presidents</span><span class="chip">1st &amp; 2nd XI bowlers</span><span class="chip">Academy program bowlers</span>
+      </div>
+      <div class="who-group">
+        <h3>1:1 &amp; Small Group</h3>
+        <span class="chip">Junior players</span><span class="chip">Senior club players</span><span class="chip">Emerging quicks</span><span class="chip">Mates splitting a session</span>
+      </div>
+      <div class="who-group">
+        <h3>Video Analysis</h3>
+        <span class="chip">Quick feedback, no full session</span><span class="chip">A second opinion before the season</span><span class="chip">Bowlers outside Melbourne</span><span class="chip">Parents of young bowlers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="on-off">
+  <div class="wrap">
+    <span class="eyebrow dark">What people say</span>
+    <h2>From clubs and bowlers.</h2>
+    <div class="testi-grid">
+      <div class="testi">
+        <q>"Bowling Lab has improved our bowlers' technique, confidence and mindset through quality, individualised coaching."</q>
+        <cite>Head Coach, Wandin Cricket Club</cite>
+      </div>
+      <div class="testi">
+        <q>"Josh's coaching helped me to understand my own action better, meaning I knew how to build a plan."</q>
+        <cite>2nd XI Opening Bowler, Melbourne Eastern Suburbs</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow dark">About the coach</span>
+    <div class="about-grid">
+      <img src="about.jpg" alt="Josh White, The Bowling Lab">
+      <div>
+        <h2 style="max-width:480px">Built by someone who's been on both sides of it.</h2>
+        <p>When I was head coach at Wonga Park, I always wanted to bring someone in specifically for the fast bowlers. A different voice, a specialist in that skill area. I couldn't find it, so I built it.</p>
+        <p style="margin-top:0.9rem;">Outside of cricket, I have a background in university lecturing and working with young people, so whether I'm coaching a junior finding their action or a senior bowler sharpening their plans, getting ideas across clearly is something I'm comfortable with.</p>
+        <div class="about-stats">
+          <div class="about-stat">Premier Cricket 1st XI playing experience</div>
+          <div class="about-stat">Victorian Fast Bowling Academy participant</div>
+          <div class="about-stat">Senior club head coaching at district level, win rate just shy of 70%</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HOW A SESSION WORKS -->
-  <section class="session-steps">
-    <div class="container">
-      <p class="section-label">How a session works</p>
-      <h2 class="section-h2">Three steps. Zero disruption.</h2>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="6" width="32" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M16 6V4M32 6V4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M8 18h32" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M16 28h8M16 34h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Book a session</h3>
-          <p>Get in touch and we'll work out what suits, whether that's a club session, a 1:1, or a small group.</p>
-        </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M34 30l6-6M40 24l2 2-8 8-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>We come to you</h3>
-          <p>I come to your venue, whether that's a club training night, an oval, or an indoor facility. Travel is included across Melbourne's eastern suburbs.</p>
-        </div>
-        <div class="step-arrow" aria-hidden="true">&rarr;</div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 8h24a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M16 20l6 6 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Bowlers leave with a plan</h3>
-          <p>Every bowler gets individual feedback and specific areas to work on. Coaches receive a written summary to reinforce it through pre-season.</p>
-        </div>
+<!-- CONTACT -->
+<section id="contact" class="on-darkest">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <h2 style="color:var(--cream)">Let's work out what suits.</h2>
+    <div class="contact-grid" style="margin-top:2rem;">
+      <div>
+        <p style="margin-bottom:1.2rem;">Whether it's a club booking, a 1:1 session, a small group, or video analysis, get in touch and we'll sort out what's right for you.</p>
+        <p style="color:var(--blue);font-weight:600;">Josh@thebowlinglab.com.au</p>
+        <p style="color:var(--blue);font-weight:600;">0418 372 933</p>
+        <p class="fine" style="margin-top:1.5rem;color:var(--light)">Limited pre-season spots remaining · Video analysis available anywhere</p>
       </div>
+      <form>
+        <div class="field-row">
+          <div><label>Your name</label><input type="text"></div>
+          <div><label>Phone</label><input type="text"></div>
+        </div>
+        <label>Email</label><input type="email">
+        <label>What are you after?</label>
+        <select>
+          <option>Select...</option>
+          <option>Club session (group coaching)</option>
+          <option>1:1 individual session</option>
+          <option>Small group (2–3 players)</option>
+          <option>Video analysis</option>
+          <option>Not sure yet</option>
+        </select>
+        <label>Club name (if applicable)</label><input type="text">
+        <label>Anything else</label><textarea rows="3"></textarea>
+        <button type="submit" class="btn" style="margin-top:0.5rem;">Send enquiry</button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHO -->
-  <section class="who">
-    <div class="slash-bg" aria-hidden="true"></div>
-    <div class="container who-inner">
-      <p class="section-label light">Who it's for</p>
-      <h2 class="who-h2">Any fast bowler who wants to head into the season with a plan.</h2>
-      <div class="who-tags">
-        <span class="tag">Club coaches &amp; presidents</span>
-        <span class="tag">Junior players</span>
-        <span class="tag">Senior club players</span>
-        <span class="tag">1st &amp; 2nd XI bowlers</span>
-        <span class="tag">Emerging quicks</span>
-        <span class="tag">Academy program bowlers</span>
-        <span class="tag">Parents of young bowlers</span>
-      </div>
-      <p class="who-note">Club sessions run inside your existing pre-season program. Individual and small group sessions are available for players and parents booking directly. Outdoor or indoor, tailored to the bowler's level.</p>
-    </div>
-  </section>
+<footer>
+  <div class="logo" style="justify-content:center;display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;">
+    <strong style="color:var(--off)">THE BOWLING LAB</strong>
+  </div>
+  <div class="flinks">
+    <a href="#how">How it works</a><a href="#club">Club Programs</a><a href="#one-to-one">1:1 Coaching</a><a href="#video-analysis">Video Analysis</a><a href="#about">About</a><a href="#contact">Book</a>
+  </div>
+  <p>Specialist fast bowling coaching for clubs, players and parents · Eastern suburbs of Melbourne &amp; remote video analysis Australia-wide</p>
+  <p style="margin-top:0.6rem;">ABN: 70 245 883 124</p>
+  <p style="margin-top:0.6rem;">Josh@thebowlinglab.com.au · 0418 372 933 · <a href="https://instagram.com/the.bowlinglab">Instagram</a></p>
+</footer>
 
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <p class="section-label">Pricing</p>
-      <h2 class="section-h2">Club sessions, 1:1 and small groups.</h2>
-      <div class="pricing-from-row">
-        <div class="pricing-from-item">
-          <span class="pricing-from-label">Club sessions</span>
-          <span class="pricing-from-price">From $200</span>
-        </div>
-        <div class="pricing-from-item">
-          <span class="pricing-from-label">1:1 outdoor</span>
-          <span class="pricing-from-price">From $90</span>
-        </div>
-        <div class="pricing-from-item">
-          <span class="pricing-from-label">1:1 indoor</span>
-          <span class="pricing-from-price">From $110</span>
-        </div>
-      </div>
-      <div class="pricing-contact">
-        <p class="pricing-contact-body">Club sessions are shaped around your program and the number of bowlers in your group. Individual and small group sessions have set pricing. Head to the 1:1 coaching page for full details. Get in touch and we'll work out what suits.</p>
-        <a href="#contact" class="btn-primary">Get in touch for details</a>
-      </div>
-      <p class="pricing-note">Discounts available for clubs booking multiple sessions. Limited pre-season availability. 1:1 and small group sessions available year-round. Eastern suburbs of Melbourne only.</p>
-      <div class="flyer-download">
-        <a href="TBL_Flyer.pdf" download class="btn-download">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-            <path d="M10 3v10M6 9l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 15h12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-          Download club flyer
-        </a>
-        <a href="TBL_Individual_Flyer.pdf" download class="btn-download">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-            <path d="M10 3v10M6 9l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 15h12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-          Download 1:1 coaching flyer
-        </a>
-        <span class="flyer-hint">Share with your committee, coaching staff or players</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- MID PAGE CTA -->
-  <section class="mid-cta">
-    <div class="container mid-cta-inner">
-      <div class="mid-cta-text">
-        <h2 class="mid-cta-h2">Ready to get started?</h2>
-        <p class="mid-cta-sub">Whether you're a club, a player booking your own session, or a parent, get in touch and we'll sort out what suits.</p>
-      </div>
-      <div class="mid-cta-actions">
-        <a href="#contact" class="btn-primary">Book a session</a>
-        <a href="TBL_Flyer.pdf" download class="btn-ghost-dark">Club flyer</a>
-        <a href="TBL_Individual_Flyer.pdf" download class="btn-ghost-dark">1:1 coaching flyer</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <p class="section-label">What bowlers say</p>
-      <div class="testi-single">
-        <div class="testi-card testi-card--large">
-          <p class="testi-quote">"Josh's coaching helped me to understand my own action better, meaning I knew how to build a plan."</p>
-          <div class="testi-attr">
-            <span class="testi-name">2nd XI Opening Bowler</span>
-            <span class="testi-club">Melbourne Eastern Suburbs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-portrait">
-          <div class="portrait-frame">
-            <img
-              src="about.jpg"
-              alt="Josh White, The Bowling Lab"
-              class="portrait-img"
-            />
-          </div>
-        </div>
-        <div class="about-text">
-          <p class="section-label">About the coach</p>
-          <h2 class="section-h2">Built by someone who's been on both sides of it.</h2>
-          <p class="about-body">When I was head coach at Wonga Park, I always wanted to bring someone in specifically for the fast bowlers. A different voice. A specialist in that skill area who might say the same thing a different way, or put it across in a way that actually lands with the group. I couldn't find it, so I built it.</p>
-          <p class="about-body">Outside of cricket, I have a background in university lecturing and working with young people, so whether I'm coaching a junior finding their action or a senior bowler sharpening their plans, getting ideas across clearly is something I'm comfortable with.</p>
-          <div class="creds">
-            <div class="cred">
-              <span class="cred-dot"></span>
-              <span>Premier Cricket 1st XI playing experience</span>
-            </div>
-            <div class="cred">
-              <span class="cred-dot"></span>
-              <span>Victorian Fast Bowling Academy participant</span>
-            </div>
-            <div class="cred">
-              <span class="cred-dot"></span>
-              <span>Senior club head coaching at district level with a win rate just shy of 70%</span>
-            </div>
-
-          </div>
-          <blockquote class="about-quote">
-            "Fast bowling is a specialist skill. Running in and hitting a length isn't enough. The best fast bowlers have a plan, and pre-season is the time to build one."
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section class="instagram">
-    <div class="container">
-      <div class="insta-header">
-        <div>
-          <p class="section-label">Follow along</p>
-          <a href="https://instagram.com/the.bowlinglab" target="_blank" rel="noopener" class="insta-handle">@the.bowlinglab</a>
-        </div>
-        <a href="https://instagram.com/the.bowlinglab" target="_blank" rel="noopener" class="btn-outline-dark">View on Instagram</a>
-      </div>
-      <div class="curator-wrap">
-        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
-        <script type="text/javascript">
-        (function(){
-        var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
-        i.src="https://cdn.curator.io/published/be674e52-8e86-4d1b-895b-a342a64c203e.js";
-        e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-        })();
-        </script>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-text">
-          <p class="section-label light">Get in touch</p>
-          <h2 class="contact-h2">Get in touch.</h2>
-          <p class="contact-sub">Whether it's a club booking, a 1:1 session, a small group, or just a question, get in touch and we'll work out what's right for you.</p>
-          <div class="contact-links">
-            <a href="mailto:Josh@thebowlinglab.com.au">Josh@thebowlinglab.com.au</a>
-            <a href="tel:0418372933">0418 372 933</a>
-          </div>
-          <div class="contact-urgency">
-            <span class="urgency-dot"></span>
-            <span>Limited pre-season spots remaining</span>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Josh Smith" required />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@yourclub.com.au" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="0400 000 000" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="sessions">What are you after?</label>
-            <select id="sessions" name="sessions">
-              <option value="">Select...</option>
-              <option value="club">Club session (group coaching)</option>
-              <option value="1on1">1:1 individual session</option>
-              <option value="small-group">Small group (2–3 players)</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Anything else</label>
-            <textarea id="message" name="message" rows="3" placeholder="Tell me a bit about your group, preferred timing, etc."></textarea>
-          </div>
-          <div class="form-group">
-            <label for="club">Club name (if applicable)</label>
-            <input type="text" id="club" name="club" placeholder="Wonga Park CC" />
-          </div>
-          <button type="submit" class="btn-primary btn-full">Send enquiry</button>
-          <p class="form-success" id="formSuccess" aria-live="polite"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <span class="logo-the">THE</span>
-          <span class="logo-main">BOWLING LAB</span>
-        </div>
-        <div class="footer-nav">
-          <a href="#how">How it works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#about">About</a>
-          <a href="coaching.html">1:1 Coaching</a>
-          <a href="#contact">Book</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Specialist fast bowling coaching for clubs, players and parents · Eastern suburbs of Melbourne</p>
-        <p>ABN: 70 245 883 124</p>
-        <div class="footer-links">
-          <a href="mailto:Josh@thebowlinglab.com.au">Josh@thebowlinglab.com.au</a>
-          <a href="tel:0418372933">0418 372 933</a>
-          <a href="https://instagram.com/the.bowlinglab" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
 </body>
 </html>
