@@ -57,7 +57,9 @@
   .logo{font-family:var(--font-display);color:var(--cream);line-height:1;}
   .logo small{display:block;font-size:0.6rem;letter-spacing:0.2em;color:var(--blue);font-weight:600;}
   .logo strong{display:block;font-size:1.15rem;font-weight:800;letter-spacing:0.01em;}
-  .navlinks{display:flex;align-items:center;gap:1.8rem;}
+  .navlinks{display:flex;align-items:center;}
+  .navlinks a{margin-right:1.8rem;}
+  .navlinks a:last-child{margin-right:0;}
   .navlinks a{font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--off);}
   .navlinks a:hover{color:var(--blue);}
   @media (max-width:900px){.navlinks a:not(.btn){display:none;}}
@@ -158,7 +160,8 @@
   @media (max-width:780px){.contact-grid{grid-template-columns:1fr;}}
 
   footer{background:var(--darkest);color:var(--light);padding:2.5rem var(--pad);text-align:center;font-size:0.82rem;}
-  footer .flinks{display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;flex-wrap:wrap;}
+  footer .flinks{display:flex;justify-content:center;margin:1rem 0;flex-wrap:wrap;}
+  footer .flinks a{margin:0 0.75rem;}
   footer .flinks a{color:var(--off);}
 </style>
 </head>

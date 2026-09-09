@@ -39,3 +39,12 @@ Still worth doing before this goes live:
 - All page content was written from the live site at time of writing.
   Worth a quick check that nothing's changed there since, if time has
   passed before this gets implemented.
+
+Second critical pass:
+- Nav and footer links relied entirely on flexbox "gap" for spacing.
+  Modern browsers support this fine, but it's the one failure mode
+  where an unsupported context turns navigation into an unreadable
+  run-together string. Replaced with margin-based spacing so there's
+  no single point of failure, no visible change in a normal browser.
+- Everything else from the last review (contrast, pricing, quotes,
+  photo) re-checked and still holding.
