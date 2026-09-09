@@ -7,6 +7,7 @@ What's in this file:
 - Colors, fonts and spacing pulled directly from the live site's CSS
   (maroon #4A0F1C / #6B1A2A, cream #F5F0E8, blue accent #A8C8E0,
   Barlow Condensed + Inter + DM Mono)
+- 1:1 pricing now lists what's included (travel, video analysis, write-up, net hire) and a new $70 no-travel outdoor rate
 - Club pricing now shows all three tiers (1 / 3 / 5 session) instead of
   just "From $200"
 - Tuesday night in-season sessions added under Club Programs
